@@ -56,32 +56,39 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // $checkb1="";
         // $checkb2="";
         // $checkb3="";
-        if ($_POST['checkbox1']!==""){
+        if (isset($_POST['checkbox1'])){
             $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
             $check1Ball=mt_rand(-100, 100);
             // $checkb1="checkbox1, ";
         }
-        else
+        else{
             $check1="";
+            $check1Ball=0;
+        }
         
-        if ($_POST['checkbox2']!==""){
+        if (isset($_POST['checkbox2'])){
             $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
             $check2Ball=mt_rand(-100, 100);
             // $checkb2="checkbox2, ";
         }
-        else
+        else{
             $check2="";
-        if ($_POST['checkbox3']!==""){
+            $check2Ball=0;
+        }
+        if (isset($_POST['checkbox3'])){
             $check3="'".htmlspecialchars($_POST['checkbox3'])."'";
             $check3Ball=mt_rand(-100, 100);
             // $checkb3="checkbox3, ";
         }
-        else
+        else{
             $check3="";
+            $check3Ball=0;
+        }
 
-        $checkbox=$check1.' '.$check2.' '.$check3;
+        $checkbox=$check1." ".$check2." ".$check3;
+        echo $checkbox;
         echo $radioBall.' '.$check1Ball.' '.$check2Ball.' '.$check3Ball;  
-        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, checkbox1) VALUES ('".    
+        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, checkbox) VALUES ('".    
         htmlspecialchars($_POST['num1'])."', '".
         htmlspecialchars($_POST['num2'])."', '".
         htmlspecialchars($_POST['text1'])."', '".
