@@ -57,7 +57,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // $checkb2="";
         // $checkb3="";
         if (isset($_POST['checkbox1'])){
-            $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
+            $check1="'".htmlspecialchars($_POST['checkbox1'])."', ";
             $check1Ball=mt_rand(-100, 100);
             // $checkb1="checkbox1, ";
         }
@@ -67,7 +67,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         }
         
         if (isset($_POST['checkbox2'])){
-            $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
+            $check2="'".htmlspecialchars($_POST['checkbox2'])."', ";
             $check2Ball=mt_rand(-100, 100);
             // $checkb2="checkbox2, ";
         }
@@ -86,8 +86,16 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         }
 
         $checkbox=$check1." ".$check2." ".$check3;
-        echo $checkbox;
-        echo $radioBall.' '.$check1Ball.' '.$check2Ball.' '.$check3Ball;  
+        // echo $checkbox;
+        // echo $radioBall.' '.$check1Ball.' '.$check2Ball.' '.$check3Ball; 
+        $date="'".htmlspecialchars(date('d.m.y'))."'";
+        $time="'".htmlspecialchars(date('H.i.s'))."'";
+        $ip="'".htmlspecialchars($_SERVER['REMOTE_ADDR'])."'";
+        // echo $date.'<br>';
+        // echo $time.'<br>';
+        // echo $ip.'<br>';
+        $balls=$radioBall+$check1Ball+$check2Ball+$check3Ball;
+        
         $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, checkbox) VALUES ('".    
         htmlspecialchars($_POST['num1'])."', '".
         htmlspecialchars($_POST['num2'])."', '".

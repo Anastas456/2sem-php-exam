@@ -16,9 +16,5 @@
         echo ' class="selected"';
     echo '>Добавить вопрос</a>';
 
-    // echo '<a href="?p=delete"'; 
-    // if( $_GET['p'] == 'delete' )
-    //     echo ' class="selected"';
-    // echo '>Удаление записи</a>';
 ?>
 </div>

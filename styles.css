@@ -1,0 +1,16 @@
+a{
+    margin-right:20px;
+}
+.main-table{
+    border:1px solid black;
+    border-collapse: collapse;
+    margin-top:20px;
+}
+.main-table td,
+.main-table th{
+    padding:10px;
+    border:1px solid black;
+}
+.selected{
+    color:red;
+}
