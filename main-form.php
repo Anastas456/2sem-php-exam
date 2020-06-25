@@ -57,7 +57,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // $checkb2="";
         // $checkb3="";
         if (isset($_POST['checkbox1'])){
-            $check1="'".htmlspecialchars($_POST['checkbox1'])."', ";
+            $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
             $check1Ball=mt_rand(-100, 100);
             // $checkb1="checkbox1, ";
         }
@@ -67,7 +67,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         }
         
         if (isset($_POST['checkbox2'])){
-            $check2="'".htmlspecialchars($_POST['checkbox2'])."', ";
+            $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
             $check2Ball=mt_rand(-100, 100);
             // $checkb2="checkbox2, ";
         }
