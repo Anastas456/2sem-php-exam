@@ -16,9 +16,9 @@
     <input type="radio" name="radio" value="radio2">radio2<br>
 
     <label for="checkbox">checkbox</label><br>
-    <input type="checkbox" name="checkbox" value="checkbox1">checkbox1<br>
-    <input type="checkbox" name="checkbox" value="checkbox2">checkbox2<br>
-    <input type="checkbox" name="checkbox" value="checkbox3">checkbox3<br> 
+    <input type="checkbox" name="checkbox1" value="checkbox1">checkbox1<br>
+    <input type="checkbox" name="checkbox2" value="checkbox2">checkbox2<br>
+    <input type="checkbox" name="checkbox3" value="checkbox3">checkbox3<br> 
    
     <input type="submit" name="button" value="Добавить запись">
 </form>
@@ -52,6 +52,20 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         else{
             $radio="'".htmlspecialchars($_POST['radio'])."'";
         }
+
+        if (isset($_POST['checkbox1']))
+            $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
+        else
+            $check1="";
+        
+        if (isset($_POST['checkbox2']))
+            $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
+        else
+            $check2="";
+        if (isset($_POST['checkbox3']))
+            $check3="'".htmlspecialchars($_POST['checkbox3'])."'";
+        else
+            $check3="";
         
        
         // if (!isset($_POST['checkbox'])){
@@ -100,11 +114,11 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // }
 
 
-        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio) VALUES ('".    //$check1 $check2 $check3
+        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, chekbox1, checkbox2, checbox3) VALUES ('".    
         htmlspecialchars($_POST['num1'])."', '".
         htmlspecialchars($_POST['num2'])."', '".
         htmlspecialchars($_POST['text1'])."', '".
-        htmlspecialchars($_POST['text2'])."', $radio);");
+        htmlspecialchars($_POST['text2'])."', $radio, $check1, $check2, $check3);");
         //$checkbox1 $checkbox2 $checkbox3
 
         if( !$sql_res )
