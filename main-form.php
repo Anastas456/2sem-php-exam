@@ -50,75 +50,42 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             exit();
         }
         else{
+            $radioBall=mt_rand(-100, 100);
             $radio="'".htmlspecialchars($_POST['radio'])."'";
         }
-
-        if (isset($_POST['checkbox1']))
+        // $checkb1="";
+        // $checkb2="";
+        // $checkb3="";
+        if ($_POST['checkbox1']!==""){
             $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
+            $check1Ball=mt_rand(-100, 100);
+            // $checkb1="checkbox1, ";
+        }
         else
             $check1="";
         
-        if (isset($_POST['checkbox2']))
+        if ($_POST['checkbox2']!==""){
             $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
+            $check2Ball=mt_rand(-100, 100);
+            // $checkb2="checkbox2, ";
+        }
         else
             $check2="";
-        if (isset($_POST['checkbox3']))
+        if ($_POST['checkbox3']!==""){
             $check3="'".htmlspecialchars($_POST['checkbox3'])."'";
+            $check3Ball=mt_rand(-100, 100);
+            // $checkb3="checkbox3, ";
+        }
         else
             $check3="";
-        
-       
-        // if (!isset($_POST['checkbox'])){
-        //     echo 'не выбран checkbox';
-        //     exit();
-        // }
-        // else{
-        //     $checkbox.="'".htmlspecialchars($_POST['checkbox'])."'";
-        // }
-//         else{
-//             $check1=$_POST['checkbox[1]'];
-//             $check2=$_POST['checkbox[2]'];
-//             $check3=$_POST['checkbox[3]'];
-//             $checkbox1="'".htmlspecialchars($check1)."' ";
-//             $checkbox2="'".htmlspecialchars($check2)."' ";
-//             $checkbox3="'".htmlspecialchars($check3)."' ";
-// }
 
-
-
-            // $checkbox2="'".htmlspecialchars($_POST['checkbox[2]'])."' ";
-            // $checkbox3="'".htmlspecialchars($_POST['checkbox[3]'])."'";
-
-            // $checkbox=$checkbox1.$checkbox2.$checkbox3;
-        
-        // $check1="";
-        // $check2="";
-        // $check3="";
-        // if ($_POST['checkbox1']=="")
-        //     $checkbox1="";
-        // else{
-        //     $checkbox1="'".htmlspecialchars($_POST['checkbox1'])."', ";
-        //     $check1="checkbox1, ";
-        // }
-        // if ($_POST['check2']=="")
-        //     $checkbox2="";
-        // else{
-        //     $checkbox2="'".htmlspecialchars($_POST['checkbox2'])."', ";
-        //     $check2="checkbox2, ";
-        // }
-        // if ($_POST['check3']=="")
-        //     $checkbox3="";
-        // else{
-        //     $checkbox3="'".htmlspecialchars($_POST['checkbox3'])."', ";
-        //     $check3="checkbox3, ";
-        // }
-
-
-        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, chekbox1, checkbox2, checbox3) VALUES ('".    
+        $checkbox=$check1.' '.$check2.' '.$check3;
+        echo $radioBall.' '.$check1Ball.' '.$check2Ball.' '.$check3Ball;  
+        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, checkbox1) VALUES ('".    
         htmlspecialchars($_POST['num1'])."', '".
         htmlspecialchars($_POST['num2'])."', '".
         htmlspecialchars($_POST['text1'])."', '".
-        htmlspecialchars($_POST['text2'])."', $radio, $check1, $check2, $check3);");
+        htmlspecialchars($_POST['text2'])."', $radio, $checkbox);");
         //$checkbox1 $checkbox2 $checkbox3
 
         if( !$sql_res )
