@@ -53,13 +53,10 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $radioBall=mt_rand(-100, 100);
             $radio="'".htmlspecialchars($_POST['radio'])."'";
         }
-        // $checkb1="";
-        // $checkb2="";
-        // $checkb3="";
+
         if (isset($_POST['checkbox1'])){
             $check1="'".htmlspecialchars($_POST['checkbox1'])."'";
             $check1Ball=mt_rand(-100, 100);
-            // $checkb1="checkbox1, ";
         }
         else{
             $check1="";
@@ -69,7 +66,6 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         if (isset($_POST['checkbox2'])){
             $check2="'".htmlspecialchars($_POST['checkbox2'])."'";
             $check2Ball=mt_rand(-100, 100);
-            // $checkb2="checkbox2, ";
         }
         else{
             $check2="";
@@ -78,7 +74,6 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         if (isset($_POST['checkbox3'])){
             $check3="'".htmlspecialchars($_POST['checkbox3'])."'";
             $check3Ball=mt_rand(-100, 100);
-            // $checkb3="checkbox3, ";
         }
         else{
             $check3="";
@@ -88,11 +83,9 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $checkbox=$check1." ".$check2." ".$check3;
         // echo $checkbox;
         // echo $radioBall.' '.$check1Ball.' '.$check2Ball.' '.$check3Ball; 
-        $date="'".htmlspecialchars(date('d.m.y'))."'";
-        $time="'".htmlspecialchars(date('H.i.s'))."'";
-        $ip="'".htmlspecialchars($_SERVER['REMOTE_ADDR'])."'";
+        $date = date("Y-m-d H:i:s");
+        $ip=$_SERVER['REMOTE_ADDR'];
         // echo $date.'<br>';
-        // echo $time.'<br>';
         // echo $ip.'<br>';
         $balls=$radioBall+$check1Ball+$check2Ball+$check3Ball;
         
@@ -101,7 +94,6 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         htmlspecialchars($_POST['num2'])."', '".
         htmlspecialchars($_POST['text1'])."', '".
         htmlspecialchars($_POST['text2'])."', $radio, $checkbox);");
-        //$checkbox1 $checkbox2 $checkbox3
 
         if( !$sql_res )
             echo '<div>Запись не добавлена</div>';

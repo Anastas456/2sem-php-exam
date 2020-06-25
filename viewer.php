@@ -22,7 +22,7 @@ function getList($page)
 
         $sql="SELECT * FROM 2sem_php_exam LIMIT ".($page * 10).", 10";
 $sql_res=mysqli_query($mysqli, $sql);
-$ret='<table class="main-table"><tr><th>ID</th><th>num1</th><th>num2</th><th>text1</th><th>text2</th><th>radio</th><th>checkbox</th><th>Дата</th><th>Время</th><th>IP</th></tr>';
+$ret='<table class="main-table"><tr><th>ID</th><th>num1</th><th>num2</th><th>text1</th><th>text2</th><th>radio</th><th>checkbox</th></tr>';
     while( $row=mysqli_fetch_row($sql_res) )
     {
         $ret.='
@@ -34,9 +34,6 @@ $ret='<table class="main-table"><tr><th>ID</th><th>num1</th><th>num2</th><th>tex
             <td>'.$row[4].'</td>
             <td>'.$row[5].'</td>
             <td>'.$row[6].'</td>
-            <td>'.$row[7].'</td>
-            <td>'.$row[8].'</td>
-            <td>'.$row[9].'</td>
         </tr>';
     }
     $ret.='</table>';
