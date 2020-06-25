@@ -16,9 +16,9 @@
     <input type="radio" name="radio" value="radio2">radio2<br>
 
     <label for="checkbox">checkbox</label><br>
-    <input type="checkbox" name="checkbox[1]" value="checkbox1">checkbox1<br>
-    <input type="checkbox" name="checkbox[2]" value="checkbox2">checkbox2<br>
-    <input type="checkbox" name="checkbox[3]" value="checkbox3">checkbox3<br> 
+    <input type="checkbox" name="checkbox" value="checkbox1">checkbox1<br>
+    <input type="checkbox" name="checkbox" value="checkbox2">checkbox2<br>
+    <input type="checkbox" name="checkbox" value="checkbox3">checkbox3<br> 
    
     <input type="submit" name="button" value="Добавить запись">
 </form>
@@ -54,13 +54,29 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         }
         
        
-        if (!isset($_POST['checkbox'])){
-            echo 'не выбран checkbox';
-            exit();
-        }
-        else{
-            $checkbox=
-        }
+        // if (!isset($_POST['checkbox'])){
+        //     echo 'не выбран checkbox';
+        //     exit();
+        // }
+        // else{
+        //     $checkbox.="'".htmlspecialchars($_POST['checkbox'])."'";
+        // }
+//         else{
+//             $check1=$_POST['checkbox[1]'];
+//             $check2=$_POST['checkbox[2]'];
+//             $check3=$_POST['checkbox[3]'];
+//             $checkbox1="'".htmlspecialchars($check1)."' ";
+//             $checkbox2="'".htmlspecialchars($check2)."' ";
+//             $checkbox3="'".htmlspecialchars($check3)."' ";
+// }
+
+
+
+            // $checkbox2="'".htmlspecialchars($_POST['checkbox[2]'])."' ";
+            // $checkbox3="'".htmlspecialchars($_POST['checkbox[3]'])."'";
+
+            // $checkbox=$checkbox1.$checkbox2.$checkbox3;
+        
         // $check1="";
         // $check2="";
         // $check3="";
@@ -84,7 +100,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // }
 
 
-        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio, checkbox) VALUES ('".    //$check1 $check2 $check3
+        $sql_res=mysqli_query($mysqli, "INSERT INTO 2sem_php_exam (num1, num2, text1, text2, radio) VALUES ('".    //$check1 $check2 $check3
         htmlspecialchars($_POST['num1'])."', '".
         htmlspecialchars($_POST['num2'])."', '".
         htmlspecialchars($_POST['text1'])."', '".

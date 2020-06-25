@@ -11,10 +11,10 @@
     if( $_GET['p'] == 'main-form' ) echo ' class="selected"';
         echo '>Главная форма</a>';
    
-    // echo '<a href="?p=edit"'; 
-    // if( $_GET['p'] == 'edit' ) 
-    //     echo ' class="selected"';
-    // echo '>Редактирование записи</a>';
+    echo '<a href="?p=add-question"'; 
+    if( $_GET['p'] == 'add-question' ) 
+        echo ' class="selected"';
+    echo '>Добавить вопрос</a>';
 
     // echo '<a href="?p=delete"'; 
     // if( $_GET['p'] == 'delete' )

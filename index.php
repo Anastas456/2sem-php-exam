@@ -19,10 +19,11 @@
     if( $_GET['p'] == 'main-form' ) { 
         include 'main-form.php'; 
     } 
+    else
+    if( $_GET['p'] == 'add-question' ) { 
+        include 'add-question.php';
+     } 
     // else
-    // if( $_GET['p'] == 'edit' ) { 
-    //     include 'edit.php';
-    //  } else
     // if( $_GET['p'] == 'delete' ) {
     //     include 'delete.php'; 
     // } 
